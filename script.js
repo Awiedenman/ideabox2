@@ -78,16 +78,6 @@ function upVote() {
   sendToStorage(object);
 }
 
-// function upVote(e) {
-//   if(e.target && e.target.matches('.upvote')) {
-//     var object = getFromStorage(e.target.parentNode.id);
-//     upVoteRange(object);
-//     e.target.nextSibling.nextSibling.nextSibling.nextSibling.lastChild.previousSibling.innerText = object.quality[object.qualityCounter];
-//     // console.log(e.target.nextSibling.nextSibling.nextSibling);
-//     sendToStorage(object);
-//   }
-// }
-
 function downVote() {
   console.log($(this).parent().attr('id'));
   var object = getFromStorage($(this).parent().attr('id'));
@@ -98,28 +88,6 @@ function downVote() {
   $(this).siblings('p').children('span').text(object.quality[object.qualityCounter]);
   sendToStorage(object);
 }
-
-
-//   console.log($(this));
-//   if(e.target && e.target.matches('.downvote')) {
-//     var object = getFromStorage(e.target.parentNode.id);
-//     downVoteRange(object);
-//     e.target.nextSibling.nextSibling.lastChild.previousSibling.innerText = object.quality[object.qualityCounter];
-//     sendToStorage(object);
-//   }
-// }
-
-// function upVoteRange(obj) {
-//   if(obj.qualityCounter < 2) {
-//     obj.qualityCounter++;
-//   }
-// }
-
-// function downVoteRange(obj) {
-//   if(obj.qualityCounter > 0) {
-//     obj.qualityCounter--;
-//   }
-// }
 
 function deleteCard(e) {
   if(e.target && e.target.matches('.ideabox__button-delete')){

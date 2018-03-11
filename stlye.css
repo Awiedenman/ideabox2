@@ -2,30 +2,54 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
+  font-family: 'Open Sans', sans-serif;
 }
 
-.p-container {
+span {
+  font-family: 'Roboto Slab', serif;
+}
 
+hr {
+  margin-top: 20px;
+  border: 0;
+  border-top: 1px solid #d1d3d4;
+}
+
+li {
+  list-style-type: none;
+  position: relative;
+}
+
+button {
+  border: none;
+  outline: none;
 }
 
 .user-form {
   background-color: #E5F3F2;
-  width: 100%;
-  height: 45%;
+  width: 100vw;
+  height: 35%;
   position: fixed;
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
 .user-form__container {
-  margin: 0 auto;
-  width: 60%;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
 }
 
-.user-form__title{
+.user-form__title {
   text-align: center;
-  font-size: 70px;
-  margin:10px 0 30px;
+  font-size: 4rem;
+  line-height: 40%;
+  margin-bottom: 45px;
+  font-family: 'Roboto Slab', serif;
+  letter-spacing: -.1rem;
 }
 
 .user-form__title-idea {
@@ -36,38 +60,27 @@
   color: #6D6E71;
 }
 
-.user-form__input-title {
-  
-}
-
 .user-form__input {
-  color: #6D6E71;
   width: 100%;
-  height: 50px;
-  margin-bottom: 20px;
-  font-size: 30px;
+  height: 40px;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  padding: 5px;
   outline: none;
+  border: 1px solid #e0e1e1;
 }
 
 .user-form__input::placeholder {
   font-size: 30px;
-}
-
-.user-form__input-box {
-
-}
-
-
-.user-form__input-body {
-
+  color: #c2c3c5;
 }
 
 .user-form__button-save {
   color: #FFFFFF;
-  background-color: #00A79D; 
+  background-color: #00A79D;
   width: 100%;
-  height: 60px;
-  font-size: 20px;
+  height: 40px;
+  font-size: 1.5rem;
 }
 
 .user-form__button-save:hover {
@@ -80,43 +93,41 @@
 
 .ideabox {
   width: 100%;
-  height: 55%;
   position: absolute;
-  top: 45%;
+  display: flex;
+  top: 35%;
   overflow-y: auto;
-
+  flex-wrap: wrap;
+  min-height: 100px;
 }
 
 .ideabox__container {
   margin: 0 auto;
-  width: 60%;
+  width: 60vw;
+  min-height: 100px;
+  flex-direction: column;
 }
 
 .ideabox__input-search {
   width: 100%;
-  height: 60px;
-  margin: 20px 0;
+  height: 40px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  padding: 5px;
+  outline: none;
+  border: 1px solid #e0e1e1;
 }
 
 .ideabox__input-search::placeholder {
   font-size: 30px;
-  padding: 5px 0 0 0;
-}
-
-.ul-container {
-
-}
-
-.ideabox__ul {
-}
-
-li {
-  list-style-type: none;
-  position: relative;
+  color: #c2c3c5;
 }
 
 .ideabox__li-title {
   color: #6D6E71;
+  margin-top: 20px;
+  font-family: 'Roboto Slab', serif;
 }
 
 .ideabox__button-delete {
@@ -126,11 +137,6 @@ li {
   position: absolute;
   right: 3px;
   top: 3px;
-}
-
-button {
-  border: none;
-  outline: none;
 }
 
 .ideabox__button-delete:hover {
@@ -146,6 +152,8 @@ button {
   background-image: url(images/upvote.svg);
   width: 20px;
   height: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
 .upvote:hover {
@@ -156,14 +164,81 @@ button {
   background-image: url(images/downvote.svg);
   width: 20px;
   height: 20px;
+  vertical-align: middle;
 }
-
 
 .downvote:hover {
   background-image: url(images/downvote-hover.svg);
-
 }
 
 .ideabox__li-quality {
   color: #6D6E71;
+  display: inline;
+  font-family: 'Roboto Slab', serif;
+}
+
+@media only screen and (max-width: 900px) {
+
+  .ideabox__container {
+    width: 65vw;
+    font-size: 1em;
+  }
+
+  .user-form__container {
+    width: 65vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .ideabox__container {
+    width: 90vw;
+    font-size: 1em;
+  }
+
+  .user-form {
+    height: 40%;
+  }
+
+  .user-form__container {
+    width: 90vw;
+  }
+
+  .user-form__title {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+
+  .user-form__input {
+    width: 100%;
+    height: 35px;
+    margin-bottom: 0;
+    margin-top: 15px;
+    font-size: 1rem;
+    padding: 5px;
+    outline: none;
+  }
+
+  .user-form__input::placeholder {
+    font-size: 1rem;
+    color: #c2c3c5;
+  }
+
+  .user-form__input-body {
+    height: 70px;
+    margin-bottom: 15px;
+  }
+
+  .ideabox__input-search {
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .user-form__button-save {
+    font-size: 1rem;
+  }
+
+  .ideabox__input-search::placeholder {
+    font-size: 1rem;
+  }
 }
