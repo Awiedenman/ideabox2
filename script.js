@@ -24,27 +24,12 @@ function Idea(userInputTitle, userInputBody) {
 Idea.prototype.prepend = function() {
   $('ul').prepend(`
     <li class="ideabox__li" id="${this.id}">
-      <h2
-        id="idea.title"
-        class="ideabox__li-title" contenteditable="true">${this.title}</h2>
-      <button
-         class="ideabox__button-delete">
-      </button>
-      <p
-        class="ideabox__li-body" contenteditable="true"
-        id="idea.body">${this.body}</p>
-      <button
-        class="upvote">
-      </button>
-      <button
-        class="downvote">
-      </button>
-      <p
-        class="ideabox__li-quality">
-        quality:
-        <span
-          id="idea.quality">${this.quality[this.qualityCounter]}</span>
-      </p>
+      <h2 id="idea.title" class="ideabox__li-title" contenteditable="true">${this.title}</h2>
+      <button class="ideabox__button-delete"></button>
+      <p class="ideabox__li-body" contenteditable="true" id="idea.body">${this.body}</p>
+      <button class="upvote"></button>
+      <button class="downvote"></button>
+      <p class="ideabox__li-quality">quality: <span id="idea.quality">${'' + this.quality[this.qualityCounter]}</span></p>
     </li>`)
 }
 
@@ -125,33 +110,12 @@ function persistUserData() {
     var ideaFromStorage = getFromStorage(localStorage.key(i));
     $('ul').prepend(`
       <li class="ideabox__li"id=${ideaFromStorage.id}>
-        <h2
-          id="idea.title"
-          class="ideabox__li-title" contenteditable="true">
-          ${ideaFromStorage.title}
-        </h2>
-        <button
-           class="ideabox__button-delete">
-        </button>
-        <p
-          class="ideabox__li-body" contenteditable="true"
-          id="idea.body">
-          ${ideaFromStorage.body}
-        </p>
-        <button
-          class="upvote">
-        </button>
-        <button
-          class="downvote">
-        </button>
-        <p
-          class="ideabox__li-quality">
-          quality:
-          <span
-            id="idea.quality">
-            ${ideaFromStorage.quality[ideaFromStorage.qualityCounter]}
-          </span>
-        </p>
+        <h2 id="idea.title" class="ideabox__li-title" contenteditable="true">${ideaFromStorage.title}</h2>
+        <button class="ideabox__button-delete"></button>
+        <p class="ideabox__li-body" contenteditable="true" id="idea.body">${ideaFromStorage.body}</p>
+        <button class="upvote"></button>
+        <button class="downvote"></button>
+        <p class="ideabox__li-quality">quality: <span id="idea.quality">${'' + ideaFromStorage.quality[ideaFromStorage.qualityCounter]}</span></p>
       </li>`);
   }
 }
