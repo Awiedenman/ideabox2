@@ -69,7 +69,7 @@ function disableBtn() {
 
 function upVote() {
   console.log((this.parentElement.id));
-  var object = getFromStorage(this.parentElement.id);
+  var object = getFromStorage($(this).parent().attr('id'));
   if (object.qualityCounter < 2) {
     object.qualityCounter++;
   }
