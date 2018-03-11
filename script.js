@@ -120,8 +120,7 @@ function persistUserData() {
     $('ul').prepend(`
       <li class="ideabox__li"id=${ideaFromStorage.id}>
         <h2 id="idea.title" class="ideabox__li-title" contenteditable="true">${ideaFromStorage.title}</h2>
-        <button class="ideabox__button-delete">
-        </button>
+        <button class="ideabox__button-delete"></button>
         <p class="ideabox__li-body" contenteditable="true" id="idea.body">${ideaFromStorage.body}</p>
         <button class="upvote"></button>
         <button class="downvote"></button>
@@ -143,6 +142,3 @@ function filter(e) {
     }
   }
 }
-
-
-
