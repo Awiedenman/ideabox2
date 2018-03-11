@@ -8,8 +8,8 @@ $('ul').on('blur','.ideabox__li-body', editBodyContent);
 $('.ideabox__input-search').on('keyup', filter);
 $($inputButton).on('click', createIdea);
 $('ul').on('click', deleteCard);
-$('ul').on('click', downVote);
-$('ul').on('click', upVote);
+$('ul').on('click', '.downvote', downVote);
+$('ul').on('click', '.upvote', upVote);
 
 $(document).ready(persistUserData());
 
@@ -66,18 +66,29 @@ function disableBtn() {
     $('.user-form__button-save').attr('disabled', false);
   }
 }
-
-function upVote(e) {
-  if(e.target && e.target.matches('.upvote')) {
-    var object = getFromStorage(e.target.parentNode.id);
-    upVoteRange(object);
-    e.target.nextSibling.nextSibling.nextSibling.nextSibling.lastChild.previousSibling.innerText = object.quality[object.qualityCounter];
-    console.log(e.target.nextSibling.nextSibling.nextSibling);
-    sendToStorage(object);
+function upVote() {
+  console.log('click');
+  var object = getFromStorage(this.parentElement.id);
+  if (object.qualityCounter < 2) {
+    object.qualityCounter++;
   }
+  console.log($(this).siblings('p').children('span'));
+  $(this).siblings('p').children('span').text(object.quality[object.qualityCounter]);
+  sendToStorage(object);
 }
 
+// function upVote(e) {
+//   if(e.target && e.target.matches('.upvote')) {
+//     var object = getFromStorage(e.target.parentNode.id);
+//     upVoteRange(object);
+//     e.target.nextSibling.nextSibling.nextSibling.nextSibling.lastChild.previousSibling.innerText = object.quality[object.qualityCounter];
+//     // console.log(e.target.nextSibling.nextSibling.nextSibling);
+//     sendToStorage(object);
+//   }
+// }
+
 function downVote(e) {
+  console.log($(this));
   if(e.target && e.target.matches('.downvote')) {
     var object = getFromStorage(e.target.parentNode.id);
     downVoteRange(object);
@@ -86,11 +97,11 @@ function downVote(e) {
   }
 }
 
-function upVoteRange(obj) {
-  if(obj.qualityCounter < 2) {
-    obj.qualityCounter++;
-  }
-}
+// function upVoteRange(obj) {
+//   if(obj.qualityCounter < 2) {
+//     obj.qualityCounter++;
+//   }
+// }
 
 function downVoteRange(obj) {
   if(obj.qualityCounter > 0) {
