@@ -66,8 +66,9 @@ function disableBtn() {
     $('.user-form__button-save').attr('disabled', false);
   }
 }
+
 function upVote() {
-  console.log('click');
+  console.log((this.parentElement.id));
   var object = getFromStorage(this.parentElement.id);
   if (object.qualityCounter < 2) {
     object.qualityCounter++;
@@ -87,15 +88,26 @@ function upVote() {
 //   }
 // }
 
-function downVote(e) {
-  console.log($(this));
-  if(e.target && e.target.matches('.downvote')) {
-    var object = getFromStorage(e.target.parentNode.id);
-    downVoteRange(object);
-    e.target.nextSibling.nextSibling.lastChild.previousSibling.innerText = object.quality[object.qualityCounter];
-    sendToStorage(object);
+function downVote() {
+  console.log($(this).parent().attr('id'));
+  var object = getFromStorage($(this).parent().attr('id'));
+  if (object.qualityCounter > 0) {
+    object.qualityCounter --;
   }
+  console.log($(this).siblings('p').children('span'));
+  $(this).siblings('p').children('span').text(object.quality[object.qualityCounter]);
+  sendToStorage(object);
 }
+
+
+//   console.log($(this));
+//   if(e.target && e.target.matches('.downvote')) {
+//     var object = getFromStorage(e.target.parentNode.id);
+//     downVoteRange(object);
+//     e.target.nextSibling.nextSibling.lastChild.previousSibling.innerText = object.quality[object.qualityCounter];
+//     sendToStorage(object);
+//   }
+// }
 
 // function upVoteRange(obj) {
 //   if(obj.qualityCounter < 2) {
@@ -103,11 +115,11 @@ function downVote(e) {
 //   }
 // }
 
-function downVoteRange(obj) {
-  if(obj.qualityCounter > 0) {
-    obj.qualityCounter--;
-  }
-}
+// function downVoteRange(obj) {
+//   if(obj.qualityCounter > 0) {
+//     obj.qualityCounter--;
+//   }
+// }
 
 function deleteCard(e) {
   if(e.target && e.target.matches('.ideabox__button-delete')){
@@ -186,8 +198,9 @@ function filter(e) {
   } else {
     $($('.ideabox__li')[i]).hide();
   }
-  }
 }
+}
+
 
 
 
