@@ -5,52 +5,46 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+section {
+  min-width: 280px;
+}
+
 span {
   font-family: 'Roboto Slab', serif;
 }
 
-hr {
-  margin-top: 20px;
-  border: 0;
-  border-top: 1px solid #d1d3d4;
-}
-
 li {
-  list-style-type: none;
   position: relative;
   border-bottom: 1px solid #d1d3d4; 
   padding-bottom: 20px;
+  list-style-type: none;
 }
 
 button {
   border: none;
-  outline: none;
 }
 
 .user-form {
-  background-color: #E5F3F2;
-  width: 100vw;
-  height: 45%;
   position: fixed;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  background-color: #E5F3F2;
+  width: 100%;
+  height: 45%;
+  z-index: 2;
 }
 
 .user-form__container {
-  width: 60vw;
-  display: flex;
-  flex-direction: column;
+  width: 60%;
 }
 
 .user-form__title {
   text-align: center;
-  font-size: 4rem;
-  line-height: 40%;
   margin: 5px 0 55px;
+  font-size: 4rem;
   font-family: 'Roboto Slab', serif;
+  line-height: 40%;
   letter-spacing: -.1rem;
 }
 
@@ -63,13 +57,13 @@ button {
 }
 
 .user-form__input {
-  width: 100%;
-  height: 50px;
   margin-bottom: 25px;
-  font-size: 2rem;
   padding: 5px;
-  outline: none;
   border: 1px solid #e0e1e1;
+  min-width: 280px;
+  height: 50px;
+  width: 100%;
+  font-size: 2rem;
 }
 
 .user-form__input::placeholder {
@@ -78,10 +72,11 @@ button {
 }
 
 .user-form__button-save {
-  color: #FFFFFF;
-  background-color: #00A79D;
-  width: 100%;
+  min-width: 280px;
   height: 50px;
+  width: 100%;
+  background-color: #00A79D;
+  color: #FFFFFF;
   font-size: 1.5rem;
 }
 
@@ -94,31 +89,28 @@ button {
 }
 
 .ideabox {
-  width: 100%;
   position: absolute;
-  display: flex;
   top: 45%;
   overflow-y: auto;
-  flex-wrap: wrap;
+  width: 100%;
   min-height: 100px;
 }
 
 .ideabox__container {
   margin: 0 auto;
-  width: 60vw;
+  width: 60%;
   min-height: 100px;
-  flex-direction: column;
 }
 
 .ideabox__input-search {
-  width: 100%;
-  height: 40px;
   margin-top: 35px;
   margin-bottom: 20px;
-  font-size: 1.5rem;
   padding: 5px;
-  outline: none;
+  min-width: 280px;
+  width: 100%;
+  height: 40px;
   border: 1px solid #e0e1e1;
+  font-size: 1.5rem;
 }
 
 .ideabox__input-search::placeholder {
@@ -127,20 +119,20 @@ button {
 }
 
 .ideabox__li-title {
-  color: #6D6E71;
   margin-top: 20px;
+  padding-bottom: 10px;
+  color: #6D6E71;
   font-family: 'Roboto Slab', serif;
   font-size: 35px;
-  padding-bottom: 10px;
 }
 
 .ideabox__button-delete {
-  background-image: url(images/delete.svg);
-  width: 20px;
-  height: 20px;
   position: absolute;
   right: 3px;
   top: 15px;
+  background-image: url(images/delete.svg);
+  height: 20px;
+  width: 20px;
 }
 
 .ideabox__button-delete:hover {
@@ -148,17 +140,17 @@ button {
 }
 
 .ideabox__li-body {
+  margin: 10px 0;
   padding-bottom: 20px;
   color: #939598;
-  margin: 10px 0;
 }
 
 .upvote {
+  margin-right: 10px;
+  vertical-align: middle;
   background-image: url(images/upvote.svg);
   width: 20px;
   height: 20px;
-  vertical-align: middle;
-  margin-right: 10px;
 }
 
 .upvote:hover {
@@ -167,9 +159,9 @@ button {
 
 .downvote {
   background-image: url(images/downvote.svg);
-  width: 20px;
-  height: 20px;
   vertical-align: middle;
+  height: 20px;
+  width: 20px;
 }
 
 .downvote:hover {
@@ -177,51 +169,54 @@ button {
 }
 
 .ideabox__li-quality {
-  color: #6D6E71;
   display: inline;
+  color: #6D6E71;
   font-family: 'Roboto Slab', serif;
 }
 
 @media only screen and (max-width: 900px) {
 
   .ideabox__container {
-    width: 65vw;
+    width: 65%;
     font-size: 1em;
   }
 
   .user-form__container {
-    width: 65vw;
+    width: 65%;
   }
 }
 
 @media only screen and (max-width: 600px) {
+  
+  .ideabox {
+    top: 35%;
+  }
 
   .ideabox__container {
-    width: 90vw;
+    width: 90%;
     font-size: 1em;
   }
 
   .user-form {
-    height: 45%;
+    height: 35%;
   }
 
   .user-form__container {
-    width: 90vw;
+    width: 90%;
   }
 
   .user-form__title {
-    font-size: 2em;
     margin-bottom: 15px;
+    font-size: 2em;
   }
 
   .user-form__input {
     width: 100%;
     height: 35px;
-    margin-bottom: 0;
-    margin-top: 15px;
-    font-size: 1rem;
+    margin: 15px 0 0;
     padding: 5px;
     outline: none;
+    font-size: 1rem;
   }
 
   .user-form__input::placeholder {
@@ -230,8 +225,8 @@ button {
   }
 
   .user-form__input-body {
-    height: 70px;
     margin-bottom: 15px;
+    height: 70px;
   }
 
   .ideabox__input-search {
@@ -246,5 +241,16 @@ button {
 
   .ideabox__input-search::placeholder {
     font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+ 
+  .user-form {
+    height: 45%;
+  }  
+
+  .ideabox {
+    top: 45%;
   }
 }
